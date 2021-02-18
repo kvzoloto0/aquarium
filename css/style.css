@@ -1,0 +1,184 @@
+/*font-family: 'Amatic SC', cursive;
+font-family: 'Lobster Two', cursive;*/
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Lobster+Two:wght@400;700&display=swap');
+
+*{
+   font-family: 'Amatic SC', cursive;
+
+}
+
+body{
+    background: #FFFAFA;
+}
+
+.heading{
+    margin-top: 70px;
+    font-family: 'Lobster Two', cursive;
+    font-size: 50px;
+    background: linear-gradient(45deg, #007dff 33%, #00ffff 66%, #7fffd4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/*первый куб*/
+.cubeFront {
+    position: relative;
+    margin: 75px auto;
+    width: 70%;
+    height: 700px;
+    background: url(../img/aquarium.jpg) no-repeat;
+    background-size: 200%;
+}
+
+.cubeBackend {
+    position: absolute;
+    margin-top: -50px;
+    margin-left: 50px;
+    width: 100%;
+    height: 700px;
+    background: #00ffff;
+    z-index: -5;
+}
+
+.triangle1 {
+    position: absolute;
+    margin-left: -50px;
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-right: 50px solid #00ffff;
+}
+
+.triangle2 {
+    position: absolute;
+    margin-top: 700px;
+    right: 0px;
+    width: 0;
+    height: 0;
+    border-left: 50px solid #00ffff;
+    border-bottom: 50px solid transparent;
+}
+
+/*второй куб*/
+.wrapper {
+  max-width: 50rem;
+  width: 100%;
+  margin: 1rem auto;
+  text-align: center;
+  z-index: -1;
+}
+.rotate {
+  display: none;
+}
+.topBackground {
+    background: green;
+    height: 400px;
+}
+.rotate-label {
+  display: inline-block;
+  margin-left: 0.5rem;
+  background: #2980b9;
+  color: #fff;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.rotate:checked + .rotate-label {
+  background: #3498db;
+}
+.perspective {
+  position: relative;
+  z-index: -1;
+  perspective: 2000px;
+  perspective-origin: 25rem -150px;
+}
+.cube {
+  position: relative;
+  width: 400px;
+  margin: 3.5rem auto;
+  transform-style: preserve-3d;
+  transition: all 0.5s;
+}
+.cube div {
+  position: absolute;
+  width: 400px;
+/*    height: 400px;*/
+  opacity: 0.95;
+}
+.cube img {
+  max-height: 200px;
+  max-width: 600px;
+}
+#rotate:checked ~ .perspective > .cube {
+  animation: rotate 10s infinite linear;
+}
+#front:checked ~ .perspective > .cube {
+  transform: rotateX(0deg) rotateY(0deg);
+  animation: none;
+}
+#left:checked ~ .perspective > .cube {
+  transform: rotateX(0deg) rotateY(90deg);
+  animation: none;
+}
+#back:checked ~ .perspective > .cube {
+  transform: rotateX(0deg) rotateY(180deg);
+  animation: none;
+}
+#right:checked ~ .perspective > .cube {
+  transform: rotateX(0deg) rotateY(270deg);
+  animation: none;
+}
+#top:checked ~ .perspective > .cube {
+  transform: rotateX(-90deg) rotateY(0) translateZ(200px) translateY(-200px);
+  animation: none;
+}
+#bottom:checked ~ .perspective > .cube {
+  transform: rotateX(90deg) rotateY(0) translateZ(-200px) translateY(-200px);
+  animation: none;
+}
+.front {
+  transform: translateZ(200px);
+}
+.back {
+  transform: translateZ(-200px) rotateY(180deg);
+}
+.left {
+  transform: rotateY(270deg) translateX(-200px);
+  transform-origin: center left;
+}
+.right {
+  transform: rotateY(-270deg) translateX(200px);
+  transform-origin: top right;
+}
+.top {
+  transform: rotateX(90deg) translateY(-200px);
+  transform-origin: top center;
+}
+.bottom {
+  transform: rotateX(-90deg) translateY(200px);
+  transform-origin: bottom center;
+}
+@keyframes rotate {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+
+
+.blockButton {
+    margin: 400px;
+    font-size: 35px;
+}
+
+.buttonTemperature {
+    width: 30%;
+}
+
+.inputTemperature {
+    width: 100%;
+}
